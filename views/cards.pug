@@ -1,0 +1,37 @@
+extends layout.pug 
+block content
+  section.namecard
+      .namecard-hello
+        p.namecard-greeting Welcome, #{name}!
+        form.namecard-exit(action='/logout' method='POST')
+          button(type='submit')
+            img(src='/static/img/close.svg')
+  if hint         
+    section.flashcards
+      .card.card-question
+        .card-header
+        h1.card-title=side
+        #content
+          h2=text
+          if hint
+            p#hint
+              i Hint: #{hint}
+        .card-flip-wrap
+          a(href=`/cards/${id}?side=${sideToShow}`)
+            img.card-flip(src='/static/img/flip.svg')
+        .card-next
+          a(href='/cards')
+            img(src='/static/img/next.svg')
+  else
+    section.flashcards
+    .card.card-answer
+      .card-header
+      h1.card-title=side
+      #content
+        h2=text
+      .card-flip-wrap
+        a(href=`/cards/${id}?side=${sideToShow}`)
+          img.card-flip(src='/static/img/flip.svg')
+      .card-next
+        a(href='/cards')
+          img(src='/static/img/next.svg')
