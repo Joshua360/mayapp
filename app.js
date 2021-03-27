@@ -14,11 +14,11 @@ const mainRoutes = require('./routes');
 const cardRoutes = require('./routes/cards.js');
 
 app.use(mainRoutes);
-app.use('/cards', cardRoutes)
+app.use('/cards', cardRoutes);
 
 
 
-const port = proncess.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(port, ()=>{
     console.log(`App is running on port: ${port}`);
 });
